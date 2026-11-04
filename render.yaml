@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: marketpulse-demo
+    runtime: static
+    buildCommand: sh frontend/build-preview.sh
+    staticPublishPath: frontend/dist
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
